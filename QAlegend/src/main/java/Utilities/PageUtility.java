@@ -48,7 +48,7 @@ public static void moveToElements(WebElement element, WebDriver driver)
     action.moveToElement(element);
     action.build().perform();
 }
-public static void selectByVisibleText(WebElement element , String value) {
+public static void selectByVisibleText(WebElement element, String value) {
 	Select drp=new Select(element);
 	drp.selectByVisibleText(value);
 	}
@@ -92,6 +92,7 @@ public static String getPageTitle(WebDriver driver)
     	action.sendKeys(element,Keys.ENTER);
     	action.build().perform();
     }
+
 }
 
 
