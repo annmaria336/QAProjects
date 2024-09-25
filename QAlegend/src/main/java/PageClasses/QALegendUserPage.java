@@ -117,7 +117,9 @@ public void pressOkButtonToDelete() {
 }
 public String validatingTheMessage() {
 	return(PageUtility.getElementText(errorDetector));
+	
 }
+
 public String messageDisplayedForNewUser() {
 	return(PageUtility.getElementText(messageDisplayed));
 }

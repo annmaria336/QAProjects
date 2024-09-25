@@ -17,7 +17,7 @@ WebElement stockAdjustmentOption;
 @FindBy(xpath = "(//i[@class='fa fa-plus-circle'])[6]")
 WebElement addStockOption;
 
-@FindBy(xpath = "(//span[@class='select2-selection__arrow'])[1]")
+@FindBy(xpath = "//span[@id='select2-location_id-container']")
 WebElement addBusinessLocation;
 
 @FindBy(id = "ref_no")

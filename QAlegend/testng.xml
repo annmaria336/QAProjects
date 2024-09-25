@@ -10,7 +10,7 @@
 	<classes>
 		<class name="QALegendTestcases.TestCases">
     <methods>
-    <include name="productAdd"></include>
+    <include name="variationAdd"></include>
     </methods>
     </class>
 	</classes>

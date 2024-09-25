@@ -40,6 +40,9 @@ WebElement commissionperBox;
 @FindBy(xpath = "//button[@class='btn btn-primary']")
 WebElement saveButtonClick;
 
+@FindBy(xpath = "//div[@class='alert alert-success']")
+WebElement successMessage;
+
 
 
 public salesCommissionAgent(WebDriver driver) {
@@ -65,6 +68,9 @@ PageUtility.clickOnElement(addressBox);
 }
 public void saveButtonClick() {
 	PageUtility.clickOnElement(saveButtonClick);
+}
+public boolean isSuccessMessageDisplayed() {
+    return successMessage.isDisplayed();
 }
 
 }

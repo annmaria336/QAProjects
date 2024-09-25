@@ -26,6 +26,16 @@ WebElement percentageValue;
 
 @FindBy(xpath = "//button[@class='btn btn-primary']")
 WebElement submitButtonClick;
+
+@FindBy(xpath = "//input[@type='search']")
+WebElement searchButton;
+
+@FindBy(xpath = "//button[starts-with(@class,'btn btn-xs btn-danger delete')]")
+WebElement deleteTheCustomer;
+
+@FindBy(xpath = "//tr[@class='odd']//child::td[@class='sorting_1']")
+WebElement searchMessage;
+
 public QALegendCustomerPage(WebDriver driver) {
 	// TODO Auto-generated constructor stub
 	this.driver=driver;
@@ -47,9 +57,17 @@ public void customerGroupName(String value) {
 }
 public void clickOnCalcPercentage(int value) {
 	PageUtility.addIntegerValue(percentageValue, value);
-	
 }
 public void clickOnSubmitButton() {
 	PageUtility.clickOnElement(submitButtonClick);
+}
+public void searchButtonClick(String value) {
+	PageUtility.enterText(searchButton, value);
+}
+public void deleteTheCustomerGroup() 
+{PageUtility.clickOnElement(deleteTheCustomer);
+	}
+public String searchMessage() {
+	return(PageUtility.getElementText(searchMessage));
 }
 }

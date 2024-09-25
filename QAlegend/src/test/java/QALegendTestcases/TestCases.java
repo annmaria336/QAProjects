@@ -1,5 +1,7 @@
 package QALegendTestcases;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
@@ -19,6 +21,7 @@ import org.testng.annotations.Test;
 
 import AutomationCore.BaseClass;
 import PageClasses.QALegenStockAdjustmentPage;
+import PageClasses.QALegendContactPage;
 import PageClasses.QALegendCustomerPage;
 import PageClasses.QALegendHomePage;
 import PageClasses.QALegendLoginPage;
@@ -26,6 +29,7 @@ import PageClasses.QALegendRolesPage;
 import PageClasses.QALegendUserPage;
 import PageClasses.productClass;
 import PageClasses.salesCommissionAgent;
+import PageClasses.sellingpricepage;
 import Utilities.ExcelUtility;
 
 public class TestCases extends BaseClass{
@@ -40,6 +44,8 @@ QALegendCustomerPage customergroups;
 QALegenStockAdjustmentPage stockadjustmentpage;
 salesCommissionAgent salescommissionpage;
 productClass productPage;
+sellingpricepage sellingpage;
+QALegendContactPage contactpage;
 
 @BeforeMethod (groups = {"smoketest","regression"})
 @Parameters({"Browser"})
@@ -59,19 +65,17 @@ public void initialization(String browser) throws Exception
 	stockadjustmentpage =new QALegenStockAdjustmentPage(driver);
 	salescommissionpage=new salesCommissionAgent(driver);
 	productPage=new productClass(driver);
+	sellingpage=new sellingpricepage(driver);
+	contactpage=new QALegendContactPage(driver);
 	
 }
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class)
 public void userCreation() throws IOException {
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
 	homepage.clickOnUserManagmentOption();
 	homepage.clickOnUserAction();
 	userpage.clickOnUserAddOption();
-	
-	
-	
-	
 	/*userpage.prefixBox().sendKeys("Miss");
 	userpage.FirstNameBox().sendKeys("Ann");
 	userpage.LastNameBox().sendKeys("Mary");
@@ -96,7 +100,7 @@ public void userCreation() throws IOException {
 	
 	
 }
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class)
 public void deleteUser() throws IOException {
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
@@ -131,7 +135,7 @@ public void deleteUser() throws IOException {
 	Assert.assertEquals(userpage.validatingTheMessage(), "No matching records found");
 	
 }
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class)
 public void addRoles() throws Exception {
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
@@ -145,7 +149,11 @@ public void addRoles() throws Exception {
 	executor1.executeScript("window.scrollBy(0,1000)");
 	rolespage.saveButtonClick();
 	rolespage.searchButtonClick("Executor");
-	Assert.assertEquals(rolespage.searchMessage(), "Executor");
+	rolespage.deleteUser();
+	rolespage.clickOnOkButton();
+	rolespage.clearSearchBox();
+	rolespage.searchButtonClick("Executor");
+	Assert.assertEquals(rolespage.searchMessage(), "No matching records found");
 	
 }
 
@@ -160,8 +168,12 @@ public void addCustomerGroups() {
 	customergroups.customerGroupName("STQ");
 	customergroups.clickOnCalcPercentage(79);
 	customergroups.clickOnSubmitButton();
+	customergroups.searchButtonClick("STQ");
+	customergroups.deleteTheCustomerGroup();
+	customergroups.searchButtonClick("STQ");
+	//Assert.assertEquals(customergroups.searchMessage(), "STQ");
 }
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class)
 public void addStockadjustment() {
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
@@ -169,7 +181,7 @@ public void addStockadjustment() {
 	stockadjustmentpage.clickOnStockAdjustmentOption();
 	stockadjustmentpage.clickOnAddStockOption();
 	stockadjustmentpage.enterReferenceNo(7890);
-	stockadjustmentpage.addDate("26/03/1996");
+	stockadjustmentpage.addDate(prop.getProperty("date"));
 	stockadjustmentpage.clickonSave();
 	
 }
@@ -192,6 +204,7 @@ public void addSalesCommission() throws IOException{
 	String commissionpercentage=ExcelUtility.getNumeric(1, 6, "//src//main//java//resources//Userdetails.xlsx", "Sheet2");
 	salescommissionpage.insertUserDetail(prefix, firstname, lastname, email, contactno, address, commissionpercentage);
 	salescommissionpage.saveButtonClick();
+	Assert.assertEquals(salescommissionpage.isSuccessMessageDisplayed(), "Commission agent added successfully");
 }
 @Test
 public void productAdd() throws IOException{
@@ -204,6 +217,8 @@ public void productAdd() throws IOException{
 	productPage.brandName("Maze");
 	productPage.shortDescription("Quality");
 	productPage.submitButtonClick();
+	Assert.assertEquals(productPage.getBrandName(), "Maze", "Brand name does not match!");
+	
 	//productPage.unitOptionClick();
 	//productPage.addUnit();
 	//productPage.addName("Ann1");
@@ -219,8 +234,55 @@ public void variationAdd() throws IOException{
 	productPage.clickOnVariation();
 	productPage.addVariation();
 	productPage.addVariationName("ABC");
-	productPage.addVariationValue(34);
+	productPage.addVariationValue1(90);
 	//productPage.addVariationValue2(35);
 	productPage.clickOnSubmitButton();
+    productPage.searchText("ABC");
+    Assert.assertEquals(productPage.messageDisplayed(), "ABC");
+	
+
 }
+@Test
+public void addSellingPrice() {
+	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
+	homepage.clickOnEndTourOption();
+	homepage.clickOnUserManagmentOption();
+	productPage.clickOnProduct();
+	sellingpage.clickOnSellingGroup();
+	sellingpage.clickOnAddSellingGroup();
+	Random rand=new Random();
+	int randomnumber=rand.nextInt(10000);
+	sellingpage.nameandDescription(prop.getProperty("sellingpricename")+randomnumber,prop.getProperty("quality products")+randomnumber);
+	sellingpage.saveButtonClick();
+	sellingpage.searchButtonClick("ABCD");
+	Assert.assertEquals(sellingpage.elementToVerify(), "ABCD");
+	
+}
+@Test
+public void addContactSupplier() throws IOException {
+	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
+	homepage.clickOnEndTourOption();
+	homepage.clickOnUserManagmentOption();
+	contactpage.clickOnContacts();
+	contactpage.clickOnSupplier();
+	contactpage.clickOnAddSupplier();
+	Random rand=new Random();
+	int randomnumber=rand.nextInt(10000);
+	String name=randomnumber+ExcelUtility.getString(1, 0, "\\src\\main\\java\\resources\\Userdetails.xlsx", "Sheet3");
+	String businessname=ExcelUtility.getString(1, 1, "\\src\\main\\java\\resources\\Userdetails.xlsx", "Sheet3")+randomnumber;
+	String contactid=ExcelUtility.getNumeric(1, 2, "//src//main//java//resources//Userdetails.xlsx", "Sheet3")+randomnumber;
+	String taxnumber=ExcelUtility.getNumeric(1, 3, "//src//main//java//resources//Userdetails.xlsx", "Sheet3");
+	String openingbalance=ExcelUtility.getNumeric(1, 4, "//src//main//java//resources//Userdetails.xlsx", "Sheet3");
+	String mobile=ExcelUtility.getNumeric(1, 5, "//src//main//java//resources//Userdetails.xlsx", "Sheet3");
+	String city=ExcelUtility.getString(1, 6, "//src//main//java//resources//Userdetails.xlsx", "Sheet3");
+	contactpage.supplierDetails("Suppliers", name, businessname, contactid, taxnumber, openingbalance, mobile, city);
+	contactpage.supplierSaveButton();
+	contactpage.searchBoxInspect("AnnM");
+	Assert.assertEquals(contactpage.messageToVerify(), "AnnM");
+	
+	
+	
+	
+}
+
 }

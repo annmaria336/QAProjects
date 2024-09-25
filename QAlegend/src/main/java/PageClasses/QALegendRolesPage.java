@@ -27,6 +27,12 @@ WebElement saveButton;
 @FindBy(xpath = "//input[@class='form-control input-sm']")
 WebElement searchButton;
 
+@FindBy(xpath = "//button[starts-with(@class,'btn btn-xs btn')]")
+WebElement deleteRole;
+
+@FindBy(xpath = "(//button[starts-with(@class,'swal-button swal')])[2]")
+WebElement okButtonToDelete;
+
 @FindBy(xpath = "//td[text()='Executor']")
 WebElement searchMessage;
 
@@ -35,7 +41,7 @@ public QALegendRolesPage(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver, this);
 }
-public void addRoles() {
+public void addRoles() {  //wrap-encapsulation
 	PageUtility.clickOnElement(element);
 }
 public void addRoleButton() {
@@ -52,6 +58,15 @@ public void saveButtonClick() {
 }
 public void searchButtonClick(String value) {
 	PageUtility.enterText(searchButton, value);
+}
+public void deleteUser() {
+	PageUtility.clickOnElement(deleteRole);	
+}
+public void clickOnOkButton() {
+	PageUtility.clickOnElement(okButtonToDelete);
+}
+public void clearSearchBox() {
+	PageUtility.clearText(searchButton);
 }
 public String searchMessage() {
 	return(PageUtility.getElementText(searchMessage));
