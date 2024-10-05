@@ -86,7 +86,7 @@ public static String getPageTitle(WebDriver driver)
     	JavascriptExecutor executor1=(JavascriptExecutor)driver;
     	executor1.executeScript("windows.scrollBy(1000)");
     }
-    public void enterKeyPress(WebDriver driver, WebElement element)
+    public static void enterKeyPress(WebDriver driver, WebElement element)
     {
     	Actions action = new Actions(driver);
     	action.sendKeys(element,Keys.ENTER);

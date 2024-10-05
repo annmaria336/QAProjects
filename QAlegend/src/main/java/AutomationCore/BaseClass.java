@@ -14,7 +14,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import com.google.common.io.Files;
 
 public class BaseClass {
+	
 public WebDriver driver;
+public String excelFilePath="\\src\\main\\java\\resources\\Userdetails.xlsx";
 public WebDriver browserInitilization(String browsername) 
 {
 	if(browsername.equalsIgnoreCase("chrome"))
@@ -34,7 +36,7 @@ public WebDriver browserInitilization(String browsername)
      {
 	System.out.println("invalid browser");
      }
-	driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS); //need to correct the code
 return driver;
 }	
 public String getScreenshotPath(String testcasename, WebDriver driver) throws IOException {

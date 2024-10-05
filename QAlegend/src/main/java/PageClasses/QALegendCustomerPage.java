@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utilities.PageUtility;
+import Utilities.WaitUtility;
 
 public class QALegendCustomerPage {
 WebDriver driver;
@@ -27,13 +28,16 @@ WebElement percentageValue;
 @FindBy(xpath = "//button[@class='btn btn-primary']")
 WebElement submitButtonClick;
 
-@FindBy(xpath = "//input[@type='search']")
-WebElement searchButton;
+@FindBy(xpath = "//div[@class='dataTables_filter']//child::input")
+WebElement searchTextBox;
 
 @FindBy(xpath = "//button[starts-with(@class,'btn btn-xs btn-danger delete')]")
 WebElement deleteTheCustomer;
 
-@FindBy(xpath = "//tr[@class='odd']//child::td[@class='sorting_1']")
+@FindBy(xpath = "//button[text()='OK']")
+WebElement clickOnOkToDelete;
+
+@FindBy(xpath = "//tr[@class='odd']//td")
 WebElement searchMessage;
 
 public QALegendCustomerPage(WebDriver driver) {
@@ -61,13 +65,21 @@ public void clickOnCalcPercentage(int value) {
 public void clickOnSubmitButton() {
 	PageUtility.clickOnElement(submitButtonClick);
 }
-public void searchButtonClick(String value) {
-	PageUtility.enterText(searchButton, value);
+public void CustomerGroupSearch(String value) {
+	WaitUtility.waitForElementVisibility(searchTextBox, 5);
+	PageUtility.enterText(searchTextBox, value);
 }
 public void deleteTheCustomerGroup() 
-{PageUtility.clickOnElement(deleteTheCustomer);
-	}
-public String searchMessage() {
-	return(PageUtility.getElementText(searchMessage));
+{
+	PageUtility.clickOnElement(deleteTheCustomer);
+}
+public void clickOnOkToDelete() {
+	PageUtility.clickOnElement(clickOnOkToDelete);
+}
+public void clearSearchBox() {
+	PageUtility.clearText(searchTextBox);
+}
+public boolean searchMessage() {
+	return(PageUtility.isElementDisplayed(searchMessage));
 }
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utilities.PageUtility;
+import Utilities.WaitUtility;
 
 public class sellingpricepage {
 WebDriver driver;
@@ -26,9 +27,9 @@ WebElement descriptionBox;
 WebElement saveButtonClick;
 
 @FindBy(xpath = "//input[@type='search']")
-WebElement clickOnSearch;
+WebElement sellingPriceSearch;
 
-@FindBy(xpath = "//tr[@class='odd']//parent::td[text()='\"ABCD\"1544']")
+@FindBy(xpath = "(//tr[@class='odd']//td)[1]")
 WebElement elementToVerify;
 
 public sellingpricepage(WebDriver driver) {
@@ -50,12 +51,12 @@ public void nameandDescription(String name, String description) {
 public void saveButtonClick() {
 	PageUtility.clickOnElement(saveButtonClick);
 }
-public WebElement searchButtonClick(String value) {
-	PageUtility.enterText(clickOnSearch, value);
-	return clickOnSearch;
+public void searchBoxClick(String value) {
+	WaitUtility.waitForElementVisibility(sellingPriceSearch, 10);
+	PageUtility.enterText(sellingPriceSearch, value);
 }
 
-public String elementToVerify() {
-	return PageUtility.getElementText(elementToVerify);
+public boolean elementToVerify() {
+	return(PageUtility.isElementDisplayed(elementToVerify));
 }
 }

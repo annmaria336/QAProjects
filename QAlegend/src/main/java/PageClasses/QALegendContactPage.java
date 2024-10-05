@@ -1,15 +1,20 @@
 package PageClasses;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import Utilities.ExcelUtility;
 import Utilities.PageUtility;
+import Utilities.WaitUtility;
+import Utilities.fakerUtility;
 
 public class QALegendContactPage {
 	WebDriver driver;
-
+WaitUtility waitUtility;
 	@FindBy(xpath = "(//i[@class='fa fa-address-book'])[1]")
 	WebElement Contactsbutton;
 
@@ -49,8 +54,8 @@ public class QALegendContactPage {
 	@FindBy(xpath = "//button[text()='Save']")
 	WebElement supplierSaveButton;
 	
-	@FindBy(xpath = "//input[@class='form-control input-sm']")
-    WebElement searchBox;	
+	@FindBy(xpath = "//input[@type='search' and @class='form-control input-sm']")
+    WebElement contactSearch;	
 	
 	@FindBy(xpath = "//td[@class='sorting_1']")
 	WebElement messageDispalyed;
@@ -59,7 +64,7 @@ public class QALegendContactPage {
 		// TODO Auto-generated constructor stub
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
-	}
+	    }
 	public void clickOnContacts() {
 		PageUtility.clickOnElement(Contactsbutton);
 	}
@@ -69,23 +74,33 @@ public class QALegendContactPage {
 	public void clickOnAddSupplier() {
 		PageUtility.clickOnElement(Addsupplierbutton);
 	}
-	public void supplierDetails(String contacty, String name , String business, String contaactid, String tax, String Balance, String mobile, String cityname) {
+	public String supplierDetails(String contacty, String filepath, String sheetname) throws IOException {
+		String name=fakerUtility.randomNumberGenerator()+ExcelUtility.getString(1, 0, "\\src\\main\\java\\resources\\Userdetails.xlsx", "Sheet3");
+		String businessname=ExcelUtility.getString(1, 1, "\\src\\main\\java\\resources\\Userdetails.xlsx", "Sheet3")+fakerUtility.randomNumberGenerator();
+		String contactid=ExcelUtility.getNumeric(1, 2, "//src//main//java//resources//Userdetails.xlsx", "Sheet3")+fakerUtility.randomNumberGenerator();
+		String taxnumber=ExcelUtility.getNumeric(1, 3, "//src//main//java//resources//Userdetails.xlsx", "Sheet3");
+		String openingbalance=ExcelUtility.getNumeric(1, 4, "//src//main//java//resources//Userdetails.xlsx", "Sheet3");
+		String mobile=ExcelUtility.getNumeric(1, 5, "//src//main//java//resources//Userdetails.xlsx", "Sheet3");
+		String city=ExcelUtility.getString(1, 6, "//src//main//java//resources//Userdetails.xlsx", "Sheet3");
 		PageUtility.selectByVisibleText(Contacttypebox, contacty);
 		PageUtility.enterText(Suppliername, name);
-		PageUtility.enterText(Businessname, business);
-		PageUtility.enterText(Contactid, contaactid);
-		PageUtility.enterText(Taxnumber, tax);
-		PageUtility.enterText(Openingbalance, Balance);
-		PageUtility.enterText(mobileNumber, cityname);
+		PageUtility.enterText(Businessname, businessname);
+		PageUtility.enterText(Contactid, contactid);
+		PageUtility.enterText(Taxnumber, taxnumber);
+		PageUtility.enterText(Openingbalance, openingbalance);
+		PageUtility.enterText(mobileNumber, mobile);
+		PageUtility.enterText(mobileNumber, city);
+		return name;
 	}
 	
 	public void supplierSaveButton() {
 		PageUtility.clickOnElement(supplierSaveButton);
 	}
-	public void searchBoxInspect(String value) {
-		PageUtility.enterText(searchBox , value);
+	public void contactSearchBox(String value) {
+		WaitUtility.waitForElementVisibility(contactSearch, 5);
+		PageUtility.enterText(contactSearch , value);
 	}
-	public String messageToVerify() {
-		return(PageUtility.getElementText(messageDispalyed));
+	public boolean messageToVerify() {
+		return(PageUtility.isElementDisplayed(messageDispalyed));
 	}
 }

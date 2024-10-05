@@ -9,19 +9,19 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">33,712</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">26,610</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">QALegendTestcases.TestCases</td><td><a href="#m0">variationAdd</a></td><td rowspan="1">1727274385689</td><td rowspan="1">7236</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">QALegendTestcases.TestCases</td><td><a href="#m0">VerifyTheSellingPriceAdded</a></td><td rowspan="1">1728139417966</td><td rowspan="1">8666</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">QALegendTestcases.TestCases#variationAdd</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=128.0.6613.138)
+<h2>Test</h2><h3 id="m0">QALegendTestcases.TestCases#VerifyTheSellingPriceAdded</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=129.0.6668.70)
 Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.11&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a2863963a2a1559160995763af928ede, sendKeysToElement {id=f.85F6670035E3736B97977767925D420C.d.F69FD31DC2AAC08BEF0F411C2CF083B3.e.113, value=[Ljava.lang.CharSequence;@4d4d8fcf}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.138, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: C:\Users\midhu\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60236}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60236/devtoo..., se:cdpVersion: 128.0.6613.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (a2863963a2a1559160995763af928ede)] -&gt; xpath: //input[@aria-controls=&apos;variation_table&apos;]]
-Session ID: a2863963a2a1559160995763af928ede
+Command: [07522ad9cef056267a9d89c801acb8aa, sendKeysToElement {value=[Ljava.lang.CharSequence;@74a9c4b0, id=f.D912A3936858D7AD7759914F5B227701.d.4EC7606A23E508827A1D35A097B08C06.e.114}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.70, chrome: {chromedriverVersion: 129.0.6668.89 (951c0b97221f..., userDataDir: C:\Users\midhu\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55908}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55908/devtoo..., se:cdpVersion: 129.0.6668.70, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (07522ad9cef056267a9d89c801acb8aa)] -&gt; xpath: //input[@type=&apos;search&apos;]]
+Session ID: 07522ad9cef056267a9d89c801acb8aa
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -34,8 +34,8 @@ Session ID: a2863963a2a1559160995763af928ede
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
 	at jdk.proxy2/jdk.proxy2.$Proxy12.sendKeys(Unknown Source)
 	at Utilities.PageUtility.enterText(PageUtility.java:16)
-	at PageClasses.productClass.searchText(productClass.java:129)
-	at QALegendTestcases.TestCases.variationAdd(TestCases.java:240)
+	at PageClasses.sellingpricepage.searchBoxClick(sellingpricepage.java:56)
+	at QALegendTestcases.TestCases.VerifyTheSellingPriceAdded(TestCases.java:213)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ... Removed 36 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>

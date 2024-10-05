@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-09-25T10:25:59 EDT" name="Suite" finished-at="2024-09-25T10:26:33 EDT" duration-ms="33712">
+  <suite started-at="2024-10-05T10:43:20 EDT" name="Suite" finished-at="2024-10-05T10:43:46 EDT" duration-ms="26610">
     <groups>
     </groups>
-    <test started-at="2024-09-25T10:25:59 EDT" name="Test" finished-at="2024-09-25T10:26:33 EDT" duration-ms="33712">
+    <test started-at="2024-10-05T10:43:20 EDT" name="Test" finished-at="2024-10-05T10:43:46 EDT" duration-ms="26610">
       <class name="QALegendTestcases.TestCases">
-        <test-method is-config="true" signature="initialization(java.lang.String)[pri:0, instance:QALegendTestcases.TestCases@7c711375]" started-at="2024-09-25T10:25:59 EDT" name="initialization" finished-at="2024-09-25T10:26:25 EDT" duration-ms="26238" status="PASS">
+        <test-method is-config="true" signature="initialization(java.lang.String)[pri:0, instance:QALegendTestcases.TestCases@5a56cdac]" started-at="2024-10-05T10:43:20 EDT" name="initialization" finished-at="2024-10-05T10:43:37 EDT" duration-ms="17586" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,29 +18,29 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialization -->
-        <test-method signature="variationAdd()[pri:0, instance:QALegendTestcases.TestCases@7c711375]" started-at="2024-09-25T10:26:25 EDT" name="variationAdd" finished-at="2024-09-25T10:26:32 EDT" duration-ms="7236" status="FAIL">
+        <test-method signature="VerifyTheSellingPriceAdded()[pri:0, instance:QALegendTestcases.TestCases@5a56cdac]" started-at="2024-10-05T10:43:37 EDT" name="VerifyTheSellingPriceAdded" finished-at="2024-10-05T10:43:46 EDT" duration-ms="8666" status="FAIL">
           <exception class="org.openqa.selenium.ElementNotInteractableException">
             <message>
               <![CDATA[element not interactable
-  (Session info: chrome=128.0.6613.138)
+  (Session info: chrome=129.0.6668.70)
 Build info: version: '4.24.0', revision: '748ffc9bc3'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a2863963a2a1559160995763af928ede, sendKeysToElement {id=f.85F6670035E3736B97977767925D420C.d.F69FD31DC2AAC08BEF0F411C2CF083B3.e.113, value=[Ljava.lang.CharSequence;@4d4d8fcf}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.138, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: C:\Users\midhu\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60236}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60236/devtoo..., se:cdpVersion: 128.0.6613.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (a2863963a2a1559160995763af928ede)] -> xpath: //input[@aria-controls='variation_table']]
-Session ID: a2863963a2a1559160995763af928ede]]>
+Command: [07522ad9cef056267a9d89c801acb8aa, sendKeysToElement {value=[Ljava.lang.CharSequence;@74a9c4b0, id=f.D912A3936858D7AD7759914F5B227701.d.4EC7606A23E508827A1D35A097B08C06.e.114}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.70, chrome: {chromedriverVersion: 129.0.6668.89 (951c0b97221f..., userDataDir: C:\Users\midhu\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55908}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55908/devtoo..., se:cdpVersion: 129.0.6668.70, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (07522ad9cef056267a9d89c801acb8aa)] -> xpath: //input[@type='search']]
+Session ID: 07522ad9cef056267a9d89c801acb8aa]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=128.0.6613.138)
+  (Session info: chrome=129.0.6668.70)
 Build info: version: '4.24.0', revision: '748ffc9bc3'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a2863963a2a1559160995763af928ede, sendKeysToElement {id=f.85F6670035E3736B97977767925D420C.d.F69FD31DC2AAC08BEF0F411C2CF083B3.e.113, value=[Ljava.lang.CharSequence;@4d4d8fcf}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.138, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: C:\Users\midhu\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60236}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60236/devtoo..., se:cdpVersion: 128.0.6613.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (a2863963a2a1559160995763af928ede)] -> xpath: //input[@aria-controls='variation_table']]
-Session ID: a2863963a2a1559160995763af928ede
+Command: [07522ad9cef056267a9d89c801acb8aa, sendKeysToElement {value=[Ljava.lang.CharSequence;@74a9c4b0, id=f.D912A3936858D7AD7759914F5B227701.d.4EC7606A23E508827A1D35A097B08C06.e.114}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.70, chrome: {chromedriverVersion: 129.0.6668.89 (951c0b97221f..., userDataDir: C:\Users\midhu\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55908}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55908/devtoo..., se:cdpVersion: 129.0.6668.70, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (07522ad9cef056267a9d89c801acb8aa)] -> xpath: //input[@type='search']]
+Session ID: 07522ad9cef056267a9d89c801acb8aa
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -62,8 +62,8 @@ at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
 at jdk.proxy2/jdk.proxy2.$Proxy12.sendKeys(Unknown Source)
 at Utilities.PageUtility.enterText(PageUtility.java:16)
-at PageClasses.productClass.searchText(productClass.java:129)
-at QALegendTestcases.TestCases.variationAdd(TestCases.java:240)
+at PageClasses.sellingpricepage.searchBoxClick(sellingpricepage.java:56)
+at QALegendTestcases.TestCases.VerifyTheSellingPriceAdded(TestCases.java:213)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -97,7 +97,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </exception> <!-- org.openqa.selenium.ElementNotInteractableException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- variationAdd -->
+        </test-method> <!-- VerifyTheSellingPriceAdded -->
       </class> <!-- QALegendTestcases.TestCases -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->

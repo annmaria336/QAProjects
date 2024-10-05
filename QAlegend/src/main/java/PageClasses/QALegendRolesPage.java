@@ -1,5 +1,6 @@
 package PageClasses;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,7 +34,7 @@ WebElement deleteRole;
 @FindBy(xpath = "(//button[starts-with(@class,'swal-button swal')])[2]")
 WebElement okButtonToDelete;
 
-@FindBy(xpath = "//td[text()='Executor']")
+@FindBy(xpath = "//td[@class='dataTables_empty']")
 WebElement searchMessage;
 
 public QALegendRolesPage(WebDriver driver) {
@@ -52,6 +53,8 @@ public void addRoleDetails(String value) {
 }
 public void selectUserType() {
 	userType.click();
+	JavascriptExecutor executor1=(JavascriptExecutor)driver;
+	executor1.executeScript("window.scrollBy(0,1000)"); 
 }
 public void saveButtonClick() {
 	PageUtility.clickOnElement(saveButton);

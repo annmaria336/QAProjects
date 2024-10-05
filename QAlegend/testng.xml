@@ -6,12 +6,12 @@
 		</listener>
 	</listeners> 
 	<parameter name="Browser" value="Chrome"/>
-  <test thread-count="5" name="Test">
+  <test thread-count="5" name="Test" >
 	<classes>
 		<class name="QALegendTestcases.TestCases">
     <methods>
-    <include name="variationAdd"></include>
-    </methods>
+    <include name="VerifyTheSellingPriceAdded"></include>
+      </methods>
     </class>
 	</classes>
   </test> <!-- Test -->

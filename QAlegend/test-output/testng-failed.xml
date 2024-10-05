@@ -9,8 +9,8 @@
     <classes>
       <class name="QALegendTestcases.TestCases">
         <methods>
-          <include name="variationAdd"/>
           <include name="initialization"/>
+          <include name="VerifyTheSellingPriceAdded"/>
         </methods>
       </class> <!-- QALegendTestcases.TestCases -->
     </classes>
