@@ -10,7 +10,15 @@
 	<classes>
 		<class name="QALegendTestcases.TestCases">
     <methods>
+       <include name="CreatingNewUser"></include>
+    <include name="DeletingtheAddedUser"></include>
+    <include name="RolesAddition"></include>
+    <include name="VerifyCustomerGroupAddition"></include>
+    <include name="SalesCommissionAdded"></include>
+    <include name="VerifyProductBrandAddedSuccessfully"></include>
+    <include name="VerifytheVariationAddedsuccessfully"></include>
     <include name="VerifyTheSellingPriceAdded"></include>
+    <include name="verifyThatSupplierAdded"></include>
       </methods>
     </class>
 	</classes>
