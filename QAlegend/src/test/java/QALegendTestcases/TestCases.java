@@ -76,7 +76,7 @@ public void initialization(String browser) throws Exception
 	waitUtility = new WaitUtility(driver);
 	
 }
-@Test//(retryAnalyzer = RetryAnalyzer.class)
+@Test(retryAnalyzer = RetryAnalyzer.class, groups = {"smoketest"})
 public void CreatingNewUser() throws IOException {
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
@@ -91,7 +91,7 @@ public void CreatingNewUser() throws IOException {
 	
 	
 }
-@Test//(retryAnalyzer = RetryAnalyzer.class)
+@Test(retryAnalyzer = RetryAnalyzer.class, groups = {"smoketest"})
 public void DeletingtheAddedUser() throws IOException {
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
@@ -109,27 +109,28 @@ public void DeletingtheAddedUser() throws IOException {
 	System.out.println("Test deleteUser passed");
 	
 }
-@Test//(retryAnalyzer = RetryAnalyzer.class)
+@Test(retryAnalyzer = RetryAnalyzer.class, groups = {"regression"})
 public void RolesAddition() throws Exception {
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
 	homepage.clickOnUserManagmentOption();
 	rolespage.addRoles();
 	rolespage.addRoleButton();
-	rolespage.addRoleDetails("Assistant Project Manager");
+	String role=prop.getProperty("role-value");
+	rolespage.addRoleDetails(role);
 	rolespage.selectUserType();
 	rolespage.saveButtonClick();
-	rolespage.searchButtonClick("Executor");
+	rolespage.searchButtonClick(role);
 	rolespage.deleteUser();
 	rolespage.clickOnOkButton();
 	rolespage.clearSearchBox();
-	rolespage.searchButtonClick("Executor");
+	rolespage.searchButtonClick(role);
 	Assert.assertEquals(rolespage.searchMessage(), "No matching records found");
 	System.out.println("Test addRoles passed");
 	
 }
 
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class, groups = {"regression"})
 public void VerifyCustomerGroupAddition() throws InterruptedException {
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
@@ -149,7 +150,7 @@ public void VerifyCustomerGroupAddition() throws InterruptedException {
     System.out.println("Test addCustomerGroups passed");
 
 }
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class)
 public void SalesCommissionAdded() throws IOException, InterruptedException{
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
@@ -163,7 +164,7 @@ public void SalesCommissionAdded() throws IOException, InterruptedException{
 	Assert.assertEquals(salescommissionpage.emailCellValueFinder(), true);
 	System.out.println("Test addSalesCommission passed");
 }
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class)
 public void VerifyProductBrandAddedSuccessfully() throws IOException, InterruptedException{
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
@@ -179,7 +180,7 @@ public void VerifyProductBrandAddedSuccessfully() throws IOException, Interrupte
 	Assert.assertEquals(productPage.brandNameSearchText(), true);
 	System.out.println("Test productAdd passed");
 }
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class)
 public void VerifytheVariationAddedsuccessfully() throws IOException, InterruptedException{
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
@@ -192,13 +193,12 @@ public void VerifytheVariationAddedsuccessfully() throws IOException, Interrupte
 	variationPage.addVariationValue1(12);
 	//productPage.addVariationValue2(35);
 	variationPage.clickOnSubmitButton();
-	Thread.sleep(2000);
     variationPage.searchVariationAdd(variationname);
     Assert.assertEquals(variationPage.variationNameSearchMessage(), true);
     System.out.println("Test variationAdd passed");
 
 }
-@Test
+@Test(retryAnalyzer = RetryAnalyzer.class)
 public void VerifyTheSellingPriceAdded() throws InterruptedException {
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
@@ -213,9 +213,8 @@ public void VerifyTheSellingPriceAdded() throws InterruptedException {
 	sellingpage.searchBoxClick(sellingpricename);
 	Assert.assertEquals(sellingpage.elementToVerify(), true);
 	System.out.println("Test addSellingPrice passed");
-	
 }
-@Test
+@Test//(retryAnalyzer = RetryAnalyzer.class)
 public void verifyThatSupplierAdded() throws InterruptedException, IOException  { 
 	loginpage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 	homepage.clickOnEndTourOption();
