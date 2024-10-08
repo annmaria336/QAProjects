@@ -34,7 +34,7 @@ public WebDriver browserInitilization(String browsername)
      {
 	System.out.println("invalid browser");
      }
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 return driver;
 }	
 public String getScreenshotPath(String testcasename, WebDriver driver) throws IOException {
