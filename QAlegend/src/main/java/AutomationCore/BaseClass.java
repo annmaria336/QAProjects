@@ -2,8 +2,6 @@ package AutomationCore;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -36,7 +34,6 @@ public WebDriver browserInitilization(String browsername)
      {
 	System.out.println("invalid browser");
      }
-		//driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS); 
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 return driver;
 }	
